@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Guardar ingresar</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="4">Nombre</ion-col>
+      <ion-col size="8">
+        <ion-input type="text" placeholder="Ej: Juan " #nombre></ion-input>
+      </ion-col>  
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button (click)="guardar(nombre)" expand="block"  shape="round">
+           Guardar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div *ngIf = "mensaje">
+    <ion-text color="primary">
+      <h1>{{mensaje}}</h1>
+    </ion-text>
+  </div>
+  <br><br>
+  <ion-button (click)="listar()" expand="block"  shape="round">
+    Listar
+ </ion-button>
+  <div *ngIf = "listado">
+    <ion-list>
+      <div *ngFor= "let aux of listado">
+        <ion-item>
+          <ion-label>{{aux}}</ion-label>
+        </ion-item>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>    
+    <ion-button (click)="limpiar()" slot="end">
+      <ion-icon slot="icon-only" name="trash"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
