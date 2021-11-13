@@ -132,7 +132,7 @@ export class HomePage {
 
     }
   }
-async limpiar()
+  async limpiar()
     {
       const alert = await this.alertController.create({
 

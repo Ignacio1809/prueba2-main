@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApirestService {
-  listado = []
+  listado = [];
   datos: any;
   private apiURL = 'https://jsonplaceholder.typicode.com/'
 
