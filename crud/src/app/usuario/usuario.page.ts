@@ -12,23 +12,19 @@ export class UsuarioPage implements OnInit {
   listado = [];
   datos: any;
   constructor(private api: ApirestService,
-              private router: Router) { }
+    private router: Router) { }
 
   ngOnInit() {
   }
 
-  listar()
-  {
-    for (let i; i <= localStorage.length; i++)
-    {
-      this.datos = localStorage.getItem(i.toString())
-    }
+  listar() {
+
+    this.datos = localStorage.getItem("1")
     this.api.getPost(this.datos);
     this.listado = this.api.listado;
   }
 
-  salir()
-  {
+  salir() {
     localStorage.clear();
     this.router.navigateByUrl('/login')
   }

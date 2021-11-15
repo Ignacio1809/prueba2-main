@@ -72,7 +72,7 @@ export class LoginPage implements OnInit {
       {
         validar = true;
         localStorage.length + 1;
-        localStorage.setItem(usuarios.id, nombre.value)
+        localStorage.setItem("1", usuarios.id)
       }
     }
 

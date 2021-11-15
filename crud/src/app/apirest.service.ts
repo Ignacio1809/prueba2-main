@@ -24,7 +24,7 @@ export class ApirestService {
   }
 
   getUser(id: String) {
-    let url = this.apiURL + 'users' + id;
+    let url = this.apiURL + 'users/' + id;
     return new Promise((resolve, reject) => {
       this.http.get(url).subscribe((data: any) => {
         this.datos = data;
@@ -37,11 +37,29 @@ export class ApirestService {
   }
 
   getPost(id: String) {
-    let url = this.apiURL + 'users/' + id + '/posts';
+    this.listado = [];
+    this.datos = "";
+    let url = this.apiURL + 'users/' + id + '/posts' ;
     return new Promise((resolve, reject) => {
       this.http.get(url).subscribe((data: any) => {
         data.forEach(item => { this.listado.push(item) });
         console.table(this.listado);
+      },
+        error => {
+          console.log("error en la solicitud")
+        })
+    })
+  }
+
+  async getComment(id: String) {
+    this.listado = [];
+    this.datos = "";
+    let url = this.apiURL + 'posts/' + id + '/comments' ;
+    return new Promise((resolve, reject) => {
+      this.http.get(url).subscribe((data:[]) => {
+        resolve(data)
+        data.forEach(item => { this.listado.push(item) });
+        //console.table(this.listado);
       },
         error => {
           console.log("error en la solicitud")
